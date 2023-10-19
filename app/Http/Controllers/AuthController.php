@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
+    //register
     function register(){
         return view('/daftar');
     }
