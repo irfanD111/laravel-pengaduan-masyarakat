@@ -49,7 +49,7 @@ class AuthController extends Controller
             
             'nama_petugas' => $nama,
             'username' => $user,
-            'password' => Hash::make($pass),
+            'password' => Hash::make($pass),//hash
             'telp' => $telp,
             'level' => $level
         ]);
