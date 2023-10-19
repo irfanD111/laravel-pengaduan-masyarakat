@@ -16,7 +16,9 @@
 <div class="container">
         <br>
         <br>
-        <h2 style="text-align: center">{{$Judul}}</h2>
+        <h2 style="text-align: center">selamat datang {{auth()->user()->username}} di App <br>
+        pengaduan masyarakat
+        </h2>
         <br>
         <br>
     <table class="table table-hover">

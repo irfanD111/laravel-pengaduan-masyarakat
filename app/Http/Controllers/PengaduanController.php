@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\pengaduan;
+use Illuminate\Support\Facades\Auth;
 
 class PengaduanController extends Controller
 {
@@ -27,7 +28,6 @@ class PengaduanController extends Controller
 
     function proses_tambah_pengaduan(Request $request){
         $nama_foto = $request->foto->getclientoriginalname();
-
         //validasi
         $request ->validate([
             'isi_laporan' => 'required|min:5'
@@ -38,7 +38,7 @@ class PengaduanController extends Controller
         $isi_pengaduan = $request->isi_laporan;
         $pengaduan = DB::table('pengaduan')->insert([
             'tgl_pengaduan' => date('Y-m-d'),
-            'nik' => '123',
+            'nik' => auth::user()->nik,
             'isi_laporan' => $isi_pengaduan,
             'foto' => $request->foto->getclientoriginalname(),
             'status' => 'proses'
