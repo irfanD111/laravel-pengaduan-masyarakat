@@ -13,9 +13,11 @@ use App\Http\Controllers\AuthController;
 
 
 
+
 Route ::get('/data-masyarakat', [MasyarakatController::class, 'data_masyarakat']);
 Route ::get('/data-petugas', [PetugasController::class, 'data_petugas']);
 
+//register dan login
 Route::get('/daftar', [AuthController::class, 'register']);
 Route::post('/daftar', [AuthController::class, 'daftar_masyarakat']);
 Route::get('/tambah-petugas', [AuthController::class, 'tambah']);
@@ -29,7 +31,7 @@ Route::get('/logout',[AuthController::class,'logout']);
     Route ::get('/home', [PengaduanController::class, 'index']);
     Route::get('/isi_pengaduan',[PengaduanController::class, 'proses_isi_pengaduan']);
     Route::post('/isi_pengaduan', [PengaduanController::class, 'proses_tambah_pengaduan']);
-//  });
+//  }); 
 
 Route ::get('/hapus_pengaduan/{id}', [ PengaduanController::class,'hapus']);
 Route ::get('/detail_pengaduan/{id}', [PengaduanController::class, 'detail']);
