@@ -13,7 +13,7 @@ use App\Http\Controllers\AuthController;
 
 
 
-
+//data masyarakat
 Route ::get('/data-masyarakat', [MasyarakatController::class, 'data_masyarakat']);
 Route ::get('/data-petugas', [PetugasController::class, 'data_petugas']);
 
