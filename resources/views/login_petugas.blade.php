@@ -4,7 +4,7 @@
 <html>
     <head>
         <title>Halaman Login</title>
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href={{asset("css/style.css")}}>
 
 
     </head>
@@ -16,10 +16,10 @@
         @endif
     </div>
         <div class="container">
-        <form action={{url('/login')}} method="post">
+        <form action={{url('/petugas/login')}} method="post">
             @method("post")
             @csrf 
-          <h1>Login</h1>
+          <h1>Login Petugas</h1>
             <form>
                 <label>Username</label><br>
                 <input type="text" name="username" required><br>

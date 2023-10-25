@@ -55,7 +55,7 @@ class AuthController extends Controller
             'level' => $level
         ]);
 
-        return redirect('/login');
+        return redirect('/petugas/login');
     }
 
     function login(){
@@ -67,7 +67,7 @@ class AuthController extends Controller
         if (Auth::attempt($datalogin)) {
            return redirect('/home');
         }else{
-           return redirect('/login');
+           return redirect('/login')->with("salah","username atau password salah");
         }
 
     }

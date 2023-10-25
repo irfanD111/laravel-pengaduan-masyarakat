@@ -18,11 +18,22 @@ body{
     top: 50%;
     transform: translate(-50%,-50%);
     padding: 20px 25px;
-    width: 300px;
+    width: 100  px;
 
     background-color: rgba(0,0,0,.7);
     box-shadow: 0 0 10px rgba(255,255,255,.3);
 }
+
+.peringatan{
+    position: absolute;
+    left: 39%;
+    top: 24%;
+    width: 62vh;
+    height: 28px;
+    color: #F7F7EE;
+    font-size: x-large;
+}   
+
 .container h1{
     text-align: center;
     color: #fafafa;

@@ -7,7 +7,7 @@
    
     <body>
         <div class="container">
-          <h1>Daftar</h1>
+          <h1>Daftar Petugas</h1>
             <form action="tambah-petugas" method="post" >
                 @method("POST")
                 @csrf 

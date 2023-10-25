@@ -9,7 +9,7 @@
    
     <body>
         <div class="container">
-          <h1>Daftar</h1>
+          <h1>Daftar </h1>
             <form action={{url("/daftar") }} method="post" >
                 @method("POST")
                 @csrf 
@@ -25,7 +25,7 @@
                 <input type="text" name="telp"><br>
                 <button type="submit">Daftar</button>
                 <p>sudah punya akun?silahkan<a href="{{url('login')}}">login</a></p>
-                <a href="{{('petugas')}}" type="submit" class="btn btn-outline-secondary" >Daftar Sebagai Masyarakat</a>
+                <a href="{{('tambah-petugas')}}" type="submit" class="btn btn-outline-secondary" >Daftar Sebagai Masyarakat</a>
                
             </form>
         </div>     

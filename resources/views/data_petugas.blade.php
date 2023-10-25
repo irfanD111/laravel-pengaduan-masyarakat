@@ -25,7 +25,7 @@
   <tbody>
     @foreach ($petugas as $petugas)
     <tr>
-      <td>{{$petugas->id_petugas}}</td>
+      <td>{{$petugas->id}}</td>
       <td>{{$petugas->nama_petugas}}</td>
       <td>{{$petugas->telp}}</td>
       <td>{{$petugas->level}}</td>

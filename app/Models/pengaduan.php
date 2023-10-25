@@ -11,5 +11,5 @@ class pengaduan extends Model
     public $timestamps = false;
     protected $table = "pengaduan";
 
-    protected $filltable =['tgl_pengaduan','nik','isi_laporan','foto','status'];
+    protected $fillable =['tgl_pengaduan','nik','isi_laporan','foto','status'];
 }
