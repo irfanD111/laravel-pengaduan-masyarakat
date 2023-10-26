@@ -17,8 +17,6 @@ class PetugasController extends Controller
         $petugas =  DB::table('petugas')->get();
 
         return view('data_petugas',['petugas'=>$petugas, 'hi'=>$hi]);
-
-
     }
 
     function index(){
@@ -42,7 +40,21 @@ class PetugasController extends Controller
     }
 
     function petugas_home(){
-        return view('home_petugas');
+        $pengaduan = DB::table('pengaduan')->get();
+        return view('home_petugas',['pengaduan'=>$pengaduan]);
+    }
+
+    function tanggapan($id){
+        $pengaduan = DB::table('pengaduan')->where('id_pengaduan','=', $id )->first();
+        return view('/tanggapan',['pengaduan'=> $pengaduan]);
+    }
+
+    function proses_tanggapan(){
+        $pengaduan = DB::table('tanggapan')->where('id_pengaduan',$request->id)->insert([
+            'isi_laporan' => $request-> isi_laporan,
+    
+        ]);
+        return redirect('/home');
     }
 }
 

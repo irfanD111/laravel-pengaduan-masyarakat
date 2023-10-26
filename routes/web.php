@@ -23,12 +23,17 @@ Route::get('/tambah-petugas', [AuthController::class, 'tambah']);
 Route::post('/tambah-petugas', [AuthController::class, 'daftar_petugas']);
 Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::post('/login',[AuthController::class,'proses_login']);
-            
+
 Route::get('/petugas/login',[PetugasController::class,'index']);
 Route::post('/petugas/login',[PetugasController::class,'proses_login']);
+
+Route::middleware(['cekpetugas'])->group(function () {
+
 Route::get('/petugas/home',[PetugasController::class,'petugas_home']);
-Route ::get('/data-petugas', [PetugasController::class, 'data_petugas']);
 Route::get('/petugas/logout',[PetugasController::class,'logout']);
+Route ::get('/petugas/tanggapan/{id}', [PetugasController::class, 'tanggapan']);
+Route ::post('/petugas/tanggapan/{id}', [PetugasController::class, 'proses_tanggapan']);
+}); 
 
 
  Route::middleware(['auth'])->group(function () {
@@ -37,7 +42,7 @@ Route::get('/petugas/logout',[PetugasController::class,'logout']);
     Route::post('/isi_pengaduan', [PengaduanController::class, 'proses_tambah_pengaduan']);
     Route::get('/logout',[AuthController::class,'logout']);
     Route ::get('/data-masyarakat', [MasyarakatController::class, 'data_masyarakat']);
-    
+    Route ::get('/data-petugas', [PetugasController::class, 'data_petugas']);
     Route ::get('/hapus_pengaduan/{id}', [ PengaduanController::class,'hapus']);
     Route ::get('/detail_pengaduan/{id}', [PengaduanController::class, 'detail']);
     Route ::get('/Update/{id}', [PengaduanController::class, 'update']);
