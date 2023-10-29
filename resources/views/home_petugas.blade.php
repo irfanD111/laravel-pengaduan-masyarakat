@@ -11,7 +11,7 @@
     <div class="container">
         <ul class="nav nav-underline nav nav-pills nav-justified">
             <li class="nav-item">
-                <a class="nav-link" href="{{url('home')}}">Home</a>
+                <a class="nav-link" href="{{url('/petugas/home')}}">Home</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{url('/petugas/logout')}}">loguot</a>

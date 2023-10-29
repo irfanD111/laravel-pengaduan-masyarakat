@@ -20,13 +20,7 @@
                 <input type="password" name="pass"><br>
                 <label>no.telp</label><br>
                 <input type="text" name="telp"><br>
-                <div class="form-group">
-                  <label for="sel1">Level:</label>
-                    <select class="form-control" id="sel1" name="level">
-                      <option>Admin</option>
-                      <option>Petugas</option>
-                     </select>
-                  </div>
+
                 <button type="submit">Daftar</button>
             </form>
         </div>     

@@ -52,7 +52,7 @@ class AuthController extends Controller
             'username' => $user,
             'password' => Hash::make($pass),//hash
             'telp' => $telp,
-            'level' => $level
+            'level' => 'Admin'
         ]);
 
         return redirect('/petugas/login');

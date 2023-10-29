@@ -28,11 +28,10 @@ Route::get('/petugas/login',[PetugasController::class,'index']);
 Route::post('/petugas/login',[PetugasController::class,'proses_login']);
 
 Route::middleware(['cekpetugas'])->group(function () {
-
-Route::get('/petugas/home',[PetugasController::class,'petugas_home']);
-Route::get('/petugas/logout',[PetugasController::class,'logout']);
-Route ::get('/petugas/tanggapan/{id}', [PetugasController::class, 'tanggapan']);
-Route ::post('/petugas/tanggapan/{id}', [PetugasController::class, 'proses_tanggapan']);
+  Route::get('/petugas/home',[PetugasController::class,'petugas_home']);
+  Route::get('/petugas/logout',[PetugasController::class,'logout']);
+  Route ::get('/petugas/tanggapan/{id}', [PetugasController::class, 'tanggapan']);
+  Route ::post('/petugas/tanggapan/{id}', [PetugasController::class, 'proses_tanggapan']);
 }); 
 
 
