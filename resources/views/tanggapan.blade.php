@@ -1,31 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href={{asset("bs1/bs2/css/bootstrap.min.css")}}>
+    <link rel="stylesheet" href={{ asset('bs1/bs2/css/bootstrap.min.css') }}>
 </head>
+
 <body>
     <div class="container">
-        <br/><br/><br/>
-    <h2 style= text-align:center>给予反馈</h2>
-    
-        <form action= "" method="POST" enctype="multipart/form-data">
-            <div class="mb-3">
-              <label for="exampleFormControlTextarea1" class="form-label">isi tanggapan</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="isi_laporan"></textarea>
-            </div>
-                 Status:
-                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                    <label class="form-check-label" for="inlineRadio1">selesai</label>
-                 </div>
-                 <br><br>
-                    <button type="submit" class="btn btn-outline-secondary">selesai</button>
-                    <a class="btn btn-outline-secondary" href="/petugas/home" role="button">kembali</a>     
-        </form>
-     </div>
+        <ul class="nav nav-underline nav nav-pills nav-justified">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/petugas/home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url('/petugas/logout') }}">loguot</a>
+            </li>
+
+        </ul>
+    </div>
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">tanggal</th>
+                    <th scope="col">nik</th>
+                    <th scope="col">isi laporan</th>
+                    <th scope="col">foto</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Opsi</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {{-- @foreach ($pengaduan as $pengaduan)
+                    <tr>
+                        <td>{{ $pengaduan->id_pengaduan }}</td>
+                        <td>{{ $pengaduan->tgl_pengaduan }}</td>
+                        <td>{{ $pengaduan->nik }}</td>
+                        <td>{{ $pengaduan->isi_laporan }}</td>
+                        <td><img src='{{ asset('storage/image/' . $pengaduan->foto) }}' width="125px"
+                                style="border-radius: 9px" /></td>
+                        <td>{{ $pengaduan->status }}</td>
+                        <td>
+                            <a href={{ asset('/petugas/update/' . $pengaduan->id_pengaduan) }} type="submit"
+                                class="btn btn-outline-success">Tanggapi</a>
+                        </td>
+                    </tr>
+                @endforeach --}}
+            </tbody>
+        </table>
+    </div>
 </body>
+
 </html>

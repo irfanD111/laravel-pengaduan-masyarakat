@@ -39,22 +39,33 @@ class PetugasController extends Controller
         return redirect('/petugas/login');
     }
 
-    function petugas_home(){
+    function petugas_home(){       
         $pengaduan = DB::table('pengaduan')->get();
         return view('home_petugas',['pengaduan'=>$pengaduan]);
     }
 
-    function tanggapan($id){
-        $pengaduan = DB::table('pengaduan')->where('id_pengaduan','=', $id )->first();
-        return view('/tanggapan',['pengaduan'=> $pengaduan]);
+
+
+    function update_status($id){
+        $pengaduan = DB::table('pengaduan')->where('status','=', $id )->first();
+        return view('tanggapan',['pengaduan' => $pengaduan]);
     }
 
-    function proses_tanggapan(){
-        $pengaduan = DB::table('tanggapan')->where('id_pengaduan',$request->id)->insert([
-            'isi_laporan' => $request-> isi_laporan,
-    
+    function proses_update_status( request $request){
+        $pengaduan = DB::table('pengaduan')->where('status',$request->id)->update([
+        'status' => $request->status
+
         ]);
-        return redirect('/home');
+        return redirect('/petugas/home');
     }
+    
+
+
+
+
+
 }
+
+  
+    
 
