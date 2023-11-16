@@ -16,12 +16,6 @@
                 <a class="nav-link" href="{{url('isi_pengaduan')}}">buat laporan</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url('data-masyarakat')}}">Data masyarakat</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{url('data-petugas')}}">Data petugas</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="{{url('logout')}}">loguot</a>
             </li>
 

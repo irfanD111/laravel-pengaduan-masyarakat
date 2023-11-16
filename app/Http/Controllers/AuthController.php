@@ -41,6 +41,7 @@ class AuthController extends Controller
 
     function daftar_petugas(request $request){
 
+
         $nama = $request->nama;
         $user = $request->un;
         $pass = $request->pass;

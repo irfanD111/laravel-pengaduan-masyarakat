@@ -11,8 +11,8 @@ class PengaduanController extends Controller
 {
     function index(){
         $judul ="selamat datang di App pengaduan masyarakat";
-        // $pengaduan = DB::table('pengaduan')->get();
-        $pengaduan = pengaduan::all();
+        //$pengaduan = DB::table('pengaduan')->get();
+        $pengaduan = pengaduan::where('nik',auth::user()->nik)->get();
         return view('/home',['Judul'=>$judul,'pengaduan'=>$pengaduan]);
     }  
 
@@ -27,13 +27,14 @@ class PengaduanController extends Controller
 
 
     function proses_tambah_pengaduan(Request $request){
-        $nama_foto = $request->foto->getclientoriginalname();
         //validasi
         $request ->validate([
             'isi_laporan' => 'required|min:5'
         ]);
         //mindahin/nyimpan file
+        $nama_foto = $request->foto->getclientoriginalname();
         $request->foto->storeas('public/image',$nama_foto);
+
 
         $isi_pengaduan = $request->isi_laporan;
         $pengaduan = DB::table('pengaduan')->insert([
@@ -53,8 +54,12 @@ class PengaduanController extends Controller
     }
 
     function detail($id){
-        $pengaduan = DB::table('pengaduan')->where('id_pengaduan','=', $id )->get();
-
+       // $pengaduan = DB::table('pengaduan')->where('id_pengaduan','=', $id )->get();
+       $pengaduan = DB::table('pengaduan')
+       ->join('tanggapan', 'pengaduan.id_pengaduan', '=', 'pengaduan.id_pengaduan')
+       ->where('pengaduan.id_pengaduan',$id)
+       ->get();
+ 
         
         return view('/detail',['pengaduan'=> $pengaduan]);  
 

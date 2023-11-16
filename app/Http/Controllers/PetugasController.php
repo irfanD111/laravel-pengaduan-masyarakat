@@ -44,28 +44,39 @@ class PetugasController extends Controller
         return view('home_petugas',['pengaduan'=>$pengaduan]);
     }
 
-
-
-    function update_status($id){
-        $pengaduan = DB::table('pengaduan')->where('status','=', $id )->first();
-        return view('tanggapan',['pengaduan' => $pengaduan]);
+    function petugas_update($id){
+      
+        $pengaduan = DB::table('pengaduan')->where('id_pengaduan','=', $id )->first();
+        // $tanggapan = DB::table('tanggapan')->where('id_pengaduan',$id)->get();
+        $tanggapan = DB::table('tanggapan')
+            ->join('petugas', 'petugas.id', '=', 'tanggapan.id_petugas')
+            ->where('tanggapan.id_pengaduan',$id)
+            ->get();
+        return view('/tanggapan',['pengaduan'=> $pengaduan , 'tanggapan'=>$tanggapan]);
     }
 
-    function proses_update_status( request $request){
-        $pengaduan = DB::table('pengaduan')->where('status',$request->id)->update([
-        'status' => $request->status
+    function petugas_proses_update( request $request){
+        $pengaduan = DB::table('pengaduan')->where('id_pengaduan',$request->id)->update([
+            'status' => $request-> status,
 
         ]);
         return redirect('/petugas/home');
-    }
     
+    }
 
+    function proses_tanggapi_pengaduan(Request $request, $id){
+        $id_pengaduan = $request->id_pengaduan;
+        $tanggapan = $request->tanggapan;
+        $pengaduan = DB::table('tanggapan')->insert([
+            'id_pengaduan' => $id,
+            'tgl_tanggapan' => date('Y-m-d'),
+            'tanggapan' => $tanggapan,
+            'id_petugas' => Auth::guard('petugas')->user()->id,
+        ]);
 
-
-
-
-}
+        return redirect('/petugas/home');
+    }
 
   
-    
 
+}

@@ -26,7 +26,7 @@
                 <label>Password</label><br>
                 <input type="password" name ="password" required><br>
                 <button type="submit">Log in</button>
-                <p>Belum punya akun?silahkan<a href="{{url('daftar')}}">Daftar</a></p>
+                <p>Belum punya akun?silahkan<a href="{{url('/tambah-petugas')}}">Daftar</a></p>
             </form>
         </div>     
     </body>

@@ -12,12 +12,16 @@
     @extends('layout.app')
 
     @section('content')
-        <div class="container">
+        <div class="container-lg,table-responsive">
             <br>
             <br>
-            <h2 style="text-align: center">selamat datang {{ auth()->user()->username }} di App <br>
-                pengaduan masyarakat
-            </h2>
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto" >
+                    <h2> selamat datang {{ auth()->user()->username }} di App
+                    pengaduan masyarakat</h2>
+                  </div>
+
+            </div>
             <br>
             <br>
             <table class="table table-hover">

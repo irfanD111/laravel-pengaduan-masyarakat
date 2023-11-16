@@ -12,12 +12,13 @@
 <div class="container">
     <br><br>
     @foreach ($pengaduan as $pengaduan)
-    <ul class="list-group" >
+    <ul class="list-group"  >
         <b><li class="list-group-item" >ID : {{$pengaduan->id_pengaduan}} </li>
         <li class="list-group-item">Tanggal     : {{$pengaduan->tgl_pengaduan}}</li>
         <li class="list-group-item">Isi Laporan : {{$pengaduan->isi_laporan}}</li>
         <li class="list-group-item">Foto : <img src='{{asset("storage/image/".$pengaduan->foto)}}' width="125px" style="border-radius: 9px"/>   </li>
-        <li class="list-group-item">Status : {{$pengaduan->status}}</li></b>
+        <li class="list-group-item">Status : {{$pengaduan->status}}</li>
+        <li class="list-group-item"> Tanggapan : {{$pengaduan->tanggapan}}</li></b>
       </ul>
       @endforeach
     

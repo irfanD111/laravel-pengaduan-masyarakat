@@ -7,12 +7,6 @@ use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthController;
 
-
-
-
-
-
-
 //data masyarakat dan petugas
 
 
@@ -32,11 +26,9 @@ Route::post('/petugas/login',[PetugasController::class,'proses_login']);
 Route::middleware(['cekpetugas'])->group(function () {
   Route::get('/petugas/home',[PetugasController::class,'petugas_home']);
   Route::get('/petugas/logout',[PetugasController::class,'logout']);
-  Route::get('/petugas/update/{id}',[PetugasController::class,'update_status']);
-  Route::post('/petugas/update/{id}',[PetugasController::class,'proses_update_status']);
-  // Route::post('/petugas/tanggapan/{id}',[PetugasController::class,'proses_tanggapan']);
-  // Route::GET('/petugas/tanggapan',[PetugasController::class,'proses_update_status']); 
-
+  Route ::get('/petugas/Update/{id}', [PetugasController::class, 'petugas_update']);
+  Route ::post('/petugas/update/{id}', [PetugasController::class, 'petugas_proses_update']);
+  Route::post('/petugas/tanggapan/{id}', [PetugasController::class, 'proses_tanggapi_pengaduan']);
 }); 
 
 

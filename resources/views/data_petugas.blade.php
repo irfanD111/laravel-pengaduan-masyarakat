@@ -35,8 +35,6 @@
                 @endforeach
             </tbody>
         </table>
-        <a href="{{ url('tambah-petugas') }}" type="submit" class="btn btn-outline-secondary">Daftar sebagai
-            petugas</a>
     </div>
 </body>
 
